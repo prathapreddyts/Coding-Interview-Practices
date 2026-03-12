@@ -3,8 +3,27 @@ package graphs.class1;
 import java.util.*;
 
 public class TraversalTechniques {
-    public static void main(String[] args) {
 
+
+    public List<Integer> dfsRecursiveOfGraphs(int nodes, List<List<Integer>> adj) {
+        List<Integer> dfsResult = new ArrayList<>();
+        boolean[] visitedArray=new boolean[nodes];
+        dfsHelper(0,dfsResult,adj,visitedArray);
+        return dfsResult;
+    }
+
+    public void dfsHelper(int currentNode, List<Integer> dfsList, List<List<Integer>> adj, boolean[] visitedArray) {
+        if (visitedArray[currentNode]) {
+            return;
+        }
+        dfsList.add(currentNode);
+        visitedArray[currentNode]=true;
+        List<Integer> neighbourNodes = adj.get(currentNode);
+        for(Integer neighbourNode:neighbourNodes){
+            if(!visitedArray[neighbourNode]){
+                dfsHelper(neighbourNode,dfsList,adj,visitedArray);
+            }
+        }
     }
 
     public List<Integer> dfsOfGraph(int V, List<List<Integer>> adj) {
