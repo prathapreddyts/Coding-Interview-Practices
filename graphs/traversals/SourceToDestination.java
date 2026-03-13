@@ -1,4 +1,4 @@
-package graphs.class1;
+package graphs.traversals;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

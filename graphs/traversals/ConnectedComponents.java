@@ -1,4 +1,4 @@
-package graphs.class1;
+package graphs.traversals;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -28,7 +28,7 @@ public class ConnectedComponents {
         for (int i = 0; i < nNodes; i++) {
 
             if (!visited[i]) {
-                bfs(i, adj, visited);
+                dfs(i, adj, visited);
                 count++;
             }
         }
@@ -49,6 +49,15 @@ public class ConnectedComponents {
                     visited[neighbour] = true;
                     queue.offer(neighbour);
                 }
+            }
+        }
+    }
+
+    private void dfs(int node, List<List<Integer>> adj, boolean[] visited) {
+        visited[node] = true;
+        for (int neighbour : adj.get(node)) {
+            if (!visited[neighbour]) {
+                dfs(neighbour, adj, visited);
             }
         }
     }
