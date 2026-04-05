@@ -1,4 +1,4 @@
-package graphs.traversals.cycles;
+package graphs.cycles;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -28,4 +28,5 @@ public class UndirectCycleInGraph {
         }
         return false;
     }
+
 }
