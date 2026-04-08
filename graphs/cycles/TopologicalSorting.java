@@ -55,9 +55,12 @@ public class TopologicalSorting {
 
     public int[] topSortUsingDFS(int nodes, List<List<Integer>> adj) {
 
-        int[] topsortOrder = new int[nodes];
         boolean[] visited = new boolean[nodes];
-        int index = 0;
+        // Use List — add(0, value) inserts at front (index 0)
+        // so when a node finishes (post-order), it naturally goes to the front
+        // → no manual reversal needed at the end
+        List<Integer> topoResult = new ArrayList<>();
+
         Stack<Pair> recursiveStack = new Stack<>();
         for (int i = 0; i < nodes; i++) {
             if (!visited[i]) {
@@ -75,19 +78,45 @@ public class TopologicalSorting {
                             );
                         }
                     } else {
-                        // post-order position (same as recursion)
+                        // post-order: node fully processed → insert at index 0 (front)
+                        // add(0, value) replaces the old manual reversal loop
                         Pair node = recursiveStack.pop();
-                        topsortOrder[index++] = node.getNode();
+                        topoResult.add(0, node.getNode());
                     }
                 }
             }
         }
-        for (int l = 0, r = nodes - 1; l < r; l++, r--) {
-            int temp = topsortOrder[l];
-            topsortOrder[l] = topsortOrder[r];
-            topsortOrder[r] = temp;
-        }
 
+        // Convert list to int[] (already in correct topo order, no reversal needed)
+        int[] topsortOrder = new int[nodes];
+        int index = 0;
+        for (int node : topoResult) {
+            topsortOrder[index++] = node;
+        }
         return topsortOrder;
+    }
+
+    public int[] topSortUsingDFSRecursive(int nodes, List<List<Integer>> adj) {
+        int[] toposortAns = new int[nodes];
+        Stack<Integer> topoStack = new Stack<>();
+        boolean[] visited = new boolean[nodes];
+        for (int i = 0; i < nodes; i++) {
+            dfsHelper(i, adj, visited, topoStack);
+        }
+        int index = 0;
+        while (!topoStack.isEmpty()) {
+            toposortAns[index++] = topoStack.pop();
+        }
+        return toposortAns;
+    }
+
+    public void dfsHelper(int currentNode, List<List<Integer>> adj, boolean[] visited, Stack<Integer> topoStack) {
+        visited[currentNode] = true;
+        for (int neightbourNode : adj.get(currentNode)) {
+            if (visited[neightbourNode] == false) {
+                dfsHelper(neightbourNode, adj, visited, topoStack);
+            }
+        }
+        topoStack.push(currentNode);
     }
 }
