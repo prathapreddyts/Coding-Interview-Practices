@@ -8,6 +8,9 @@ import java.util.List;
 import java.util.Stack;
 
 public class EventualSafeStates {
+    public static void main(String[] args) {
+        System.out.println('a'-'a');
+    }
 
     // Function to get the eventually safe nodes
     public int[] eventualSafeNodesUsingRec(int V, int[][] adj) {
