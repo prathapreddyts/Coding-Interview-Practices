@@ -6,6 +6,11 @@ public class PairNode implements Comparator<PairNode> {
     public int node;
     public int distance;
 
+    public PairNode(int node, int distance) {
+        this.node = node;
+        this.distance = distance;
+    }
+
     public int getNode() {
         return node;
     }
@@ -14,13 +19,6 @@ public class PairNode implements Comparator<PairNode> {
         this.node = node;
     }
 
-    public int getDistance() {
-        return distance;
-    }
-
-    public void setDistance(int distance) {
-        this.distance = distance;
-    }
 
     @Override
     public String toString() {
