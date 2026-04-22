@@ -1,4 +1,4 @@
-package graphs;
+package graphs.tuf.traversals;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

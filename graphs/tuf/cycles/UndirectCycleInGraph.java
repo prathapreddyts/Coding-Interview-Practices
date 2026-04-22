@@ -1,4 +1,4 @@
-package graphs.cycles;
+package graphs.tuf.cycles;
 
 import java.util.LinkedList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package graphs.dijkstra;
+package graphs.tuf.dijkstra;
 
 import java.util.Arrays;
 import java.util.List;

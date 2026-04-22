@@ -1,4 +1,4 @@
-package graphs.dijkstra;
+package graphs.tuf.dijkstra;
 
 import java.util.Comparator;
 
@@ -6,6 +6,10 @@ public class PairNode implements Comparator<PairNode> {
     public int node;
     public int distance;
 
+
+    public PairNode(){
+
+    }
     public PairNode(int node, int distance) {
         this.node = node;
         this.distance = distance;

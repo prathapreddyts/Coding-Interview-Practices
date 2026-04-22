@@ -1,4 +1,4 @@
-package graphs.traversals;
+package graphs.tuf.traversals;
 
 import java.util.Iterator;
 

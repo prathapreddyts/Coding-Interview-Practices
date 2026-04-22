@@ -1,4 +1,4 @@
-package graphs.hardproblems;
+package graphs.tuf.hardproblems;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

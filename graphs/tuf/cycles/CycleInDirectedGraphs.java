@@ -1,6 +1,6 @@
-package graphs.cycles;
+package graphs.tuf.cycles;
 
-import graphs.traversals.Pair;
+import graphs.tuf.traversals.Pair;
 
 import java.util.*;
 

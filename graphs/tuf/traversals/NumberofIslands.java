@@ -1,8 +1,7 @@
-package graphs;
+package graphs.tuf.traversals;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
 
 public class NumberofIslands {
     public int numIslands(char[][] grid) {
