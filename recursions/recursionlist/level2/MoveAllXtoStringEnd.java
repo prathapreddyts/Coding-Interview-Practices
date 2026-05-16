@@ -20,24 +20,20 @@ public class MoveAllXtoStringEnd {
     }
 
     public void moveZeroes(int[] nums) {
-
         List<Integer> list = new ArrayList<>();
         for (int num : nums) {
             list.add(num);
         }
         moveZeroesHelper(0, list);
-        // copy back to array
         for (int i = 0; i < nums.length; i++) {
             nums[i] = list.get(i);
         }
     }
 
     public void moveZeroesHelper(int index, List<Integer> nums) {
-
         if (index >= nums.size()) {
             return;
         }
-
         if (nums.get(index) == 0) {
             nums.remove(index);
             nums.add(0);
