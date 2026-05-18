@@ -1,6 +1,4 @@
-package linkedlists.revisitMedium;
-
-import java.util.List;
+package linkedlists.revisit;
 
 public class FindMiddleOfLinkedList {
     public ListNode middleOfLinkedList(ListNode head) {

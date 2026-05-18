@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium.hardFAQ;
+package linkedlists.revisit.hardFAQ;
 
 public class ReOrderList {
     public void reorderList(ListNode head) {

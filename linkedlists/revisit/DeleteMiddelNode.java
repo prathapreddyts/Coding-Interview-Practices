@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium;
+package linkedlists.revisit;
 
 public class DeleteMiddelNode {
     public ListNode deleteMiddle(ListNode head) {

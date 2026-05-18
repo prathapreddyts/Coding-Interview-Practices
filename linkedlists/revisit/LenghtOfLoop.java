@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium;
+package linkedlists.revisit;
 
 public class LenghtOfLoop {
     public int findLengthOfLoop(ListNode head) {

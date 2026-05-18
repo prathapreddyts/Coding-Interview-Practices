@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium.hardFAQ;
+package linkedlists.revisit.hardFAQ;
 
 public class PartitionList {
     public ListNode partition(ListNode head, int x) {

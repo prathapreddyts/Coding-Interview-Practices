@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium.hardFAQ;
+package linkedlists.revisit.hardFAQ;
 
 import java.util.HashMap;
 import java.util.Map;

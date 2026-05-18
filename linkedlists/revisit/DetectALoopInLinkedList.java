@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium;
+package linkedlists.revisit;
 
 public class DetectALoopInLinkedList {
     public boolean hasCycle(ListNode head) {

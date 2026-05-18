@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium;
+package linkedlists.revisit;
 
 public class IntersectionPointYLinkedList {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {

@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium.hardFAQ;
+package linkedlists.revisit.hardFAQ;
 
 public class CloneALLWithRandomNextPointer {
     public RandomPointerNode copyRandomList(RandomPointerNode head) {

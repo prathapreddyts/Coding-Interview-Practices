@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium;
+package linkedlists.revisit.hardFAQ;
 
 public class ListNode {
     public int val;

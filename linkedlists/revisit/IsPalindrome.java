@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium;
+package linkedlists.revisit;
 
 public class IsPalindrome {
     public boolean isPalindrome(ListNode head) {

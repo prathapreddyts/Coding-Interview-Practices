@@ -1,4 +1,4 @@
-package linkedlists.revisitMedium;
+package linkedlists.revisit;
 
 public class StartingPointInLinkedList {
     public ListNode findStartingPoint(ListNode head) {
