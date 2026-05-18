@@ -1,17 +1,17 @@
 package linkedlists.revisitMedium.hardFAQ;
 
 public class CloneALLWithRandomNextPointer {
-    public ListNode copyRandomList(ListNode head) {
+    public RandomPointerNode copyRandomList(RandomPointerNode head) {
         if (head == null) {
             return null;
         }
         createRandomLinkedList(head);
-        ListNode currentNode = head;
+        RandomPointerNode currentNode = head;
         updateRandomPointer(currentNode);
         return separateLinkedList(head);
     }
 
-    private void updateRandomPointer(ListNode currentNode) {
+    private void updateRandomPointer(RandomPointerNode currentNode) {
         while (currentNode != null) {
             if (currentNode.random != null) {
                 currentNode.next.random = currentNode.random.next;
@@ -20,22 +20,22 @@ public class CloneALLWithRandomNextPointer {
         }
     }
 
-    public void createRandomLinkedList(ListNode currentNode) {
+    public void createRandomLinkedList(RandomPointerNode currentNode) {
         while (currentNode != null) {
-            ListNode temp = currentNode.next;
-            ListNode newNode = new ListNode(currentNode.val);
+            RandomPointerNode temp = currentNode.next;
+            RandomPointerNode newNode = new RandomPointerNode(currentNode.val);
             currentNode.next = newNode;
             newNode.next = temp;
             currentNode = temp;
         }
     }
 
-    private ListNode separateLinkedList(ListNode head) {
-        ListNode newHead = null;
-        ListNode tail = null;
-        ListNode currentNode = head;
+    private RandomPointerNode separateLinkedList(RandomPointerNode head) {
+        RandomPointerNode newHead = null;
+        RandomPointerNode tail = null;
+        RandomPointerNode currentNode = head;
         while (currentNode != null) {
-            ListNode clonedNode = currentNode.next;
+            RandomPointerNode clonedNode = currentNode.next;
             // Restore original list
             currentNode.next = clonedNode.next;
             // Isolate cloned node
@@ -54,28 +54,3 @@ public class CloneALLWithRandomNextPointer {
     }
 
 }
-
-class ListNode {
-    int val;
-    ListNode next;
-    ListNode random;
-
-    ListNode() {
-        val = 0;
-        next = null;
-        random = null;
-    }
-
-    ListNode(int val) {
-        this.val = val;
-        next = null;
-        random = null;
-    }
-
-    ListNode(int val, ListNode next, ListNode random) {
-        this.val = val;
-        this.next = next;
-        this.random = random;
-    }
-}
-
