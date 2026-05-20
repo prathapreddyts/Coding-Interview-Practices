@@ -14,7 +14,6 @@ public class IntersectionPointYLinkedList {
                 diffLength--;
             }
         } else {
-
             while (diffLength > 0) {
                 currentHeadB = currentHeadB.next;
                 diffLength--;
