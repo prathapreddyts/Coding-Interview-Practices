@@ -6,17 +6,15 @@
 stacksandqueues/
 ├── stacks/
 │   ├── basics/
-│   │   ├── ValidParentheses.java
-│   │   ├── MinStack.java
-│   │   ├── ImplementQueueUsingStacks.java
-│   │   ├── EvaluateReversePolishNotation.java
-│   │   └── BackspaceStringCompare.java
+│   │   ├── ValidParentheses.java          ← Parentheses family (#20, #921, #1249, #32, #678)
+│   │   ├── MinStack.java                  ← Design stack (#155, #716, O(1) space variant)
+│   │   ├── ImplementQueueUsingStacks.java ← Interconversion (#232, #225, ArrayDeque)
+│   │   ├── EvaluateReversePolishNotation.java ← Expression eval (#150, #224, #227, #772, #394, #71)
+│   │   ├── BackspaceStringCompare.java    ← Adjacent removal (#844, #1047, #1209, #1544)
+│   │   └── StockBuySellProblems.java      ← DP/Greedy (#121, #122, #123, #188, #309, #714)
 │   └── monotonic/
-│       ├── DailyTemperatures.java         ← START HERE (monotonic template)
-│       ├── LargestRectangleInHistogram.java
-│       ├── TrappingRainWater.java
-│       ├── SumOfSubarrayMinimums.java
-│       └── OnlineStockSpan.java
+│       ├── MonotonicStackTemplates.java   ← START HERE (8 core templates WITH code)
+│       └── MonotonicStackApplications.java ← 25+ problems grouped by pattern (TODOs)
 └── queues/
     ├── basics/
     │   ├── DesignCircularQueue.java
@@ -93,53 +91,13 @@ stacksandqueues/
 
 1. **ValidParentheses** → understand stack push/pop pattern
 2. **MinStack** → understand auxiliary data structures
-3. **DailyTemperatures** → learn monotonic stack template
-4. **NextGreaterElement I, II** → reinforce template
-5. **LargestRectangleInHistogram** → hardest monotonic stack ⭐
-6. **TrappingRainWater** (all 3 approaches) ⭐
-7. **SlidingWindowMaximum** → learn monotonic deque ⭐
-8. **TaskScheduler** → heap + queue simulation
-9. **EvaluateRPNExpression → BasicCalculator I, II, III** — progressive
-10. **Stock problems** — state machine DP
+3. **MonotonicStackTemplates** → MASTER all 8 directions with code ⭐⭐
+4. **MonotonicStackApplications Group 1** → NGE problems (Daily Temps, NGE I/II/III)
+5. **MonotonicStackApplications Group 3** → Largest Rectangle in Histogram ⭐
+6. **MonotonicStackApplications Group 4** → Trapping Rain Water (all 3 approaches) ⭐
+7. **MonotonicStackApplications Group 5** → Contribution technique (Sum of Subarray Mins)
+8. **SlidingWindowMaximum** → learn monotonic deque ⭐
+9. **EvaluateRPN → BasicCalculator I, II, III** — progressive
+10. **StockBuySellProblems** — state machine DP (all 6 variants)
 
 ---
-
-## Monotonic Stack Template (Memorize This)
-
-```java
-// NEXT GREATER ELEMENT template
-Stack<Integer> stack = new Stack<>();
-int[] result = new int[n];
-Arrays.fill(result, -1);
-
-for (int i = 0; i < n; i++) {
-    while (!stack.isEmpty() && nums[stack.peek()] < nums[i]) {
-        result[stack.pop()] = nums[i]; // nums[i] is NGE for popped element
-    }
-    stack.push(i);
-}
-```
-
-## Monotonic Deque Template (Memorize This)
-
-```java
-// SLIDING WINDOW MAXIMUM template
-Deque<Integer> deque = new ArrayDeque<>(); // stores indices
-
-for (int i = 0; i < n; i++) {
-    // 1. Remove indices outside window
-    while (!deque.isEmpty() && deque.peekFirst() < i - k + 1)
-        deque.pollFirst();
-
-    // 2. Maintain decreasing order — remove useless smaller elements
-    while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i])
-        deque.pollLast();
-
-    deque.offerLast(i);
-
-    // 3. Window is full — record answer
-    if (i >= k - 1)
-        result[i - k + 1] = nums[deque.peekFirst()];
-}
-```
-
